@@ -5,3 +5,8 @@ function render(){
       contentRef.innerHTML += foodTemplate(index);
     }
 }
+
+function addBasket(){
+   let contentRef = document.getElementById('Basekt')
+    
+}

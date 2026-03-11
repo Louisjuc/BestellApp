@@ -10,7 +10,7 @@ function foodTemplate(index){
     </div>
         <div class="buy_area">
         <p>${foods[index].price}</p>
-        <button class="buy">Add to basket</button>
+        <button class="buy" onclick="addBasket">Add to basket</button>
     </div>
     </div>
 </section>
