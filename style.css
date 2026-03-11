@@ -9,14 +9,14 @@ body {
   color: #363534;
 }
 
-header {
+.header_intro {
+  max-width: 1440px;
   position: relative;
-  margin-bottom: 80px;
 }
 
 .header-content {
   background-color: #e76c1f;
-  padding: 25px 50px;
+  padding: 25px 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -59,6 +59,7 @@ nav {
   transform: translate(-50%, -50%);
   display: block;
   position: absolute;
+  bottom: -140px;
 }
 
 h1 {
@@ -67,7 +68,8 @@ h1 {
 
 .rest_info {
   text-align: center;
-  padding: 4%;
+  padding: 4% 5%;
+  max-width: 1440px;
 }
 .star {
   width: 18px;
@@ -83,7 +85,7 @@ h1 {
   padding: 0 7%;
   display: flex;
   align-items: flex-end;
-  gap: 10px; 
+  gap: 10px;
   height: 60px;
   margin: 20px 0;
 }
@@ -108,42 +110,85 @@ h2 {
   gap: 5px;
 }
 
-#food_template_section{
-    max-width: 1440px;
-    padding: 0 5%;
+#food_template_section {
+  max-width: 1440px;
+  padding: 0 5%;
 }
 
-.food_card{
-    display: flex;
-    background-color: #FDEADC;
-    padding: 10px;
-    gap: 5px;
-    border-radius: 20px;
-    width: 715px;
-    justify-content: space-between;
-    margin: 20px 0;
+.food_card {
+  display: flex;
+  background-color: #fdeadc;
+  padding: 10px;
+  gap: 5px;
+  border-radius: 20px;
+  width: 715px;
+  justify-content: space-between;
+  margin: 20px 0;
 }
 
-.food_card img{
-    width: 200px;
+.food_card img {
+  width: 200px;
 }
 
-.food_info{
-    display: flex;
-    gap: 10px; 
-    width: 500px;
+.food_info {
+  display: flex;
+  gap: 10px;
+  width: 500px;
 }
 
-.buy_area{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
+.buy_area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
-.buy{
-    border-radius: 20px;
+.buy {
+  border-radius: 20px;
+  background-color: #fff;
+  border: none;
+  padding: 5px 8px;
+}
+
+#basket{
+    background-color: #363534;
+    color: #FDEADC;
+    position: absolute;
+    right: 0;
+    top: 215px;
+    padding: 80px 40px;
+    border-radius: 20px 0px 0px 20px;
+    height: 600px;
+    width: 400px;
+    text-align: center;
+}
+
+#buy_items{
+    border-radius: 60px;
+    padding: 15px 55px;
+    background-color: #E76C1F;
+    border: none;
+    color: #fff;
+    font-weight: 800;
+    font-size: 32px;
+}
+
+#buy_items:hover{
+    border-radius: 60px;
+    padding: 15px 55px;
     background-color: #fff;
     border: none;
-    padding: 5px 8px;
+    color: #E76C1F;
+    font-weight: 800;
+    font-size: 32px;
 }
+
+#basket h3{
+    font-size: 32px;
+}
+
+main{
+    position: relative;
+}
+
+
