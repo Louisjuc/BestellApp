@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  margin: 0;
+}
+
+body {
+  font-family: "Palanquin", sans-serif;
+  color: #363534;
+}
+
+header {
+  position: relative;
+  margin-bottom: 80px;
+}
+
+.header-content {
+  background-color: #e76c1f;
+  padding: 25px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 92px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.orange {
+  color: #e76c1f;
+}
+
+.header {
+  width: 100%;
+  height: 508px;
+  object-fit: cover;
+}
+
+.bar {
+  width: 40px;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.burgerhouse-icon {
+  width: 180px;
+  height: 180px;
+  border: 6px solid #fdeadc;
+  border-radius: 100%;
+  right: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  position: absolute;
+}
+
+h1 {
+  text-align: center;
+}
+
+.rest_info {
+  text-align: center;
+  padding: 4%;
+}
+.star {
+  width: 18px;
+}
+
+.menu {
+  max-width: 1440px;
+  padding: 5%;
+}
+
+.headline_section {
+  background-color: #e76c1f;
+  padding: 0 7%;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px; 
+  height: 60px;
+  margin: 20px 0;
+}
+
+h2 {
+  color: #fff;
+}
+
+.title_section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.reviews {
+  background-color: #facaac;
+  padding: 1px 3px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#food_template_section{
+    max-width: 1440px;
+    padding: 0 5%;
+}
+
+.food_card{
+    display: flex;
+    background-color: #FDEADC;
+    padding: 10px;
+    gap: 5px;
+    border-radius: 20px;
+    width: 715px;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.food_card img{
+    width: 200px;
+}
+
+.buy_area{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.buy{
+    border-radius: 20px;
+    background-color: #fff;
+    border: none;
+    padding: 5px 8px;
+}
