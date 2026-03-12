@@ -9,17 +9,30 @@ body {
   color: #363534;
 }
 
+h2{
+  font-size: 32px;
+}
+
 .header_intro {
   max-width: 1440px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.wrapper{
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 5%;
   position: relative;
 }
 
 .header-content {
   background-color: #e76c1f;
-  padding: 25px 5%;
+  padding: 25px 10%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
 }
 
 .logo {
@@ -82,7 +95,7 @@ h1 {
 
 .headline_section {
   background-color: #e76c1f;
-  padding: 0 7%;
+  padding: 0 10%;
   display: flex;
   align-items: flex-end;
   gap: 10px;
@@ -111,8 +124,7 @@ h2 {
 }
 
 #food_template_section {
-  max-width: 1440px;
-  padding: 0 5%;
+
 }
 
 .food_card {
@@ -121,7 +133,7 @@ h2 {
   padding: 10px;
   gap: 5px;
   border-radius: 20px;
-  width: 715px;
+  width: 630px;
   justify-content: space-between;
   margin: 20px 0;
 }
@@ -155,11 +167,10 @@ h2 {
     color: #FDEADC;
     position: absolute;
     right: 0;
-    top: 215px;
+    top: 0px;
     padding: 80px 40px;
-    border-radius: 20px 0px 0px 20px;
-    height: 600px;
-    width: 400px;
+    border-radius: 20px 0 0 20px;
+    width: 350px;
     text-align: center;
 }
 
@@ -187,8 +198,35 @@ h2 {
     font-size: 32px;
 }
 
-main{
-    position: relative;
+.item{
+  background-color: #FDEADC;
+  color: #000;
+  border-radius: 20px;
+  margin: 20px 0;
+  padding: 15px;
+  text-align: left;
 }
+.delete{
+  width: 10px;
+}
+
+.add_item{
+  background-color: #FDEADC;
+  border: none;
+  padding: 0;
+  padding-block: 0px;
+}
+
+.basket_numbers{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+h4{
+  padding: 0 0 20px 0;
+}
+
+
 
 
