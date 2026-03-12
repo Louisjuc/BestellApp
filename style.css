@@ -1,5 +1,4 @@
 * {
-  box-sizing: border-box;
   scroll-behavior: smooth;
   margin: 0;
 }
@@ -7,6 +6,12 @@
 body {
   font-family: "Palanquin", sans-serif;
   color: #363534;
+ 
+}
+
+p{
+  font-size: 14px;
+  line-height: 1.3em;
 }
 
 h2 {
@@ -36,6 +41,10 @@ h2 {
 
 .logo {
   width: 92px;
+}
+
+.mobile-nav{
+  display: none;
 }
 
 nav {
@@ -293,6 +302,21 @@ footer {
  width: 120px;
  height: 120px;
   bottom: -80px;
+}
+
+.mobile-nav{
+  display: inherit;
+  background-color: #363534;
+  display: flex;
+  padding: 25px;
+  justify-content: space-evenly;
+  position: sticky;
+  bottom: 0;
+}
+
+.buy_area {
+  align-items: flex-start;
+  gap: 10px;
 }
 
 }

@@ -54,11 +54,26 @@ function clearBasket(){
 function addItem(index, button){
   let counter = button.parentElement.querySelector('.food_counter');
   counter.innerText = parseInt(counter.innerText) + 1;
+  counter.innerText = amount
+
+  let price = foods[index].price;
+
+  newPrice = price * amount;
+  
+  return newPrice;
+
 }
 
 function removeItem(index, button){
   let counter = button.parentElement.querySelector('.food_counter');
   counter.innerText = parseInt(counter.innerText) - 1;
+
+  let buttons = document.querySelectorAll(".buy");
+  if (counter.innerHTML < 1) {
+    button.closest('.item').remove(); 
+    buttons[index].innerText = "Add to basket";
+    buttons[index].disabled = false;
+  }
 }
 
 
