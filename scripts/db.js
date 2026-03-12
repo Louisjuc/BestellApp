@@ -45,5 +45,28 @@ let foods = [
     name: "Quattro Formaggi with Chicken",
     description: "Red onion, Olives, Button Mushrooms, Mozzarella",
     price: 12.90,
-  }
+  },
+  {
+    img: "arugula.png",
+    name: "Warm beef arugula salad",
+    description: "Beef, Arugula, Field salad, Greek feta, Cherry tomatoes, Sun-dried Tomatoes, Balsamic-vinegar dressing",
+    price: 16.90,
+  }, {
+  img: "mini_salad.png",
+  name: "Mini green Salad",
+  description: "Green salad, Cucumber, Carrots, Parsley, Radishes eef, Arugula, Field salad, Greek feta, Cherry tomatoes, Sun-dried Tomatoes, Balsamic-vinegar dressing",
+  price: 7.90,
+},
+{
+  img: "sea_salad.png",
+  name: "Green Salad with sea food",
+  description: "Green Mixed greens, Cherry tomatoes, Red onion, Mussels, Squid rings, Shrimp, Dijon mustard-lemon dressing with dillsalad, Cucumber, Carrots, Parsley, Radishes eef, Arugula, Field salad, Greek feta, Cherry tomatoes, Sun-dried Tomatoes, Balsamic-vinegar dressing",
+  price: 16.90,
+},
+{
+  img: "tofu_salad.png",
+  name: "Vegan green salad with tofu",
+  description: "Green salad, Cherry tomatoes, Cucumber, Baby spinach, Edamame, Radishes, Bittercress, Tofu, PeanutsGreen Mixed greens, Cherry tomatoes, Red onion, Mussels, Squid rings, Shrimp, Dijon mustard-lemon dressing with dillsalad, Cucumber, Carrots, Parsley, Radishes eef, Arugula, Field salad, Greek feta, Cherry tomatoes, Sun-dried Tomatoes, Balsamic-vinegar dressing",
+  price: 14.90,
+}
 ];
