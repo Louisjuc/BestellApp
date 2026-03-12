@@ -9,7 +9,7 @@ body {
   color: #363534;
 }
 
-h2{
+h2 {
   font-size: 32px;
 }
 
@@ -19,12 +19,14 @@ h2{
   margin: 0 auto;
 }
 
-.wrapper{
+.wrapper {
   max-width: 1140px;
   margin: 0 auto;
-  padding: 0 5%;
+  padding: 0 5% 20px 5%;
   position: relative;
 }
+
+
 
 .header-content {
   background-color: #e76c1f;
@@ -32,7 +34,6 @@ h2{
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 
 .logo {
@@ -123,9 +124,6 @@ h2 {
   gap: 5px;
 }
 
-#food_template_section {
-
-}
 
 .food_card {
   display: flex;
@@ -162,71 +160,101 @@ h2 {
   padding: 5px 8px;
 }
 
-#basket{
-    background-color: #363534;
-    color: #FDEADC;
-    position: absolute;
-    right: 0;
-    top: 0px;
-    padding: 80px 40px;
-    border-radius: 20px 0 0 20px;
-    width: 350px;
-    text-align: center;
+#basket {
+  background-color: #363534;
+  color: #fdeadc;
+  position: absolute;
+  right: 0;
+  top: 0px;
+  padding: 80px 40px;
+  border-radius: 20px 0 0 20px;
+  width: 350px;
+  text-align: center;
 }
 
-#buy_items{
-    border-radius: 60px;
-    padding: 15px 55px;
-    background-color: #E76C1F;
-    border: none;
-    color: #fff;
-    font-weight: 800;
-    font-size: 32px;
+#buy_items {
+  border-radius: 60px;
+  padding: 15px 55px;
+  background-color: #e76c1f;
+  border: none;
+  color: #fff;
+  font-weight: 800;
+  font-size: 32px;
 }
 
-#buy_items:hover{
-    border-radius: 60px;
-    padding: 15px 55px;
-    background-color: #fff;
-    border: none;
-    color: #E76C1F;
-    font-weight: 800;
-    font-size: 32px;
+#buy_items:hover {
+  border-radius: 60px;
+  padding: 15px 55px;
+  background-color: #fff;
+  border: none;
+  color: #e76c1f;
+  font-weight: 800;
+  font-size: 32px;
 }
 
-#basket h3{
-    font-size: 32px;
+#basket h3 {
+  font-size: 32px;
 }
 
-.item{
-  background-color: #FDEADC;
+.item {
+  background-color: #fdeadc;
   color: #000;
   border-radius: 20px;
   margin: 20px 0;
   padding: 15px;
   text-align: left;
 }
-.delete{
+.delete {
   width: 10px;
 }
 
-.add_item{
-  background-color: #FDEADC;
+.add_item {
+  background-color: #fdeadc;
   border: none;
   padding: 0;
   padding-block: 0px;
 }
 
-.basket_numbers{
+.basket_numbers {
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
 
-h4{
+h4 {
   padding: 0 0 20px 0;
 }
 
+.add_item:hover {
+  color: #e76c1f;
+}
 
+.delete:hover {
+  filter: invert(1);
+}
 
+.truck {
+  width: 50px;
+}
 
+#my_modal {
+  margin: auto auto;
+  background-color: #363534;
+  color: #fdeadc;
+  padding: 32px 40px;
+  border-radius: 30px;
+  border: none;
+}
+
+#my_modal::backdrop {
+  background-color: rgba(69, 68, 68, 0.4);
+}
+
+footer{
+  display: flex;
+padding: 32px 0;
+  background-color: #e76c1f;
+  color: #fff;
+  gap: 20px;
+  justify-content: center;
+}

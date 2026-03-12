@@ -51,21 +51,37 @@
     </div>
 <section class="wrapper">
 <section id="menu">
-
-
       </section>
       <section id="basket">
         <h3>Your Basket</h3>
              <div id="item-basket"></div>
-        <button id="buy_items">Buy now</button>
+        <button id="buy_items" popovertarget="my_modal" onclick="clearBasket()">Buy now</button>
       <p>Subtotal</p>
       <p>Delivery fee</p>
       <h3>Total</h3>
+
+      <div id="my_modal" popover>
+       <img src="./assets/icons/delivery.png" class="truck" alt="Besttellung aufgegeben icon">
+        <p><strong>Order confirmed!</strong><br>
+        Your food is on the way!</p>
+      </div>
       </section>
+    
+      </section>
+      <div class="headline_section">
+        <img src="./assets/icons/Pizza 1.svg" class="headline_icon" />
+        <h2>Pizza</h2></div>
+        <section class="wrapper">
+        <section id="pizza_menu">
+        </section>
       </section>
     </section>
     </main>
-    <footer></footer>
+    <footer>
+      <p>&#169; 2025 BurgerHouse</p>
+      <p>Imprint</p>
+      <p>Cookie Preferences</p>
+    </footer>
     <script src="./scripts/template.js"></script>
     <script src="./scripts/db.js"></script>
     <script src="./script.js"></script>

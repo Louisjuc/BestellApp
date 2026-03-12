@@ -23,4 +23,27 @@ let foods = [
     description: "Chicken, Cheese, Tomatoes, Lettuce, Onion, Bell pepper",
     price: 15.90,
   },
+  {
+    img: "margherita.png",
+    name: "Pizza Margherita",
+    description: "Tomato Sauce, Mozzarella",
+    price: 11.90,
+  },  {
+    img: "chorizo.png",
+    name: "Pizza Chorizo",
+    description: "Tomato slices, Mozzarella, Chorizo",
+    price: 13.90,
+  },
+  {
+    img: "funghi.png",
+    name: "Pizza Funghi",
+    description: "Red onion, Olives, Button Mushrooms, Mozzarella",
+    price: 12.90,
+  },
+  {
+    img: "formaggi.png",
+    name: "Quattro Formaggi with Chicken",
+    description: "Red onion, Olives, Button Mushrooms, Mozzarella",
+    price: 12.90,
+  }
 ];
