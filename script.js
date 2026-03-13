@@ -1,10 +1,10 @@
 function render() {
-  foodRender()
-  pizzaRender()
-  saladRender()
+  foodRender();
+  pizzaRender();
+  saladRender();
 }
 
-function foodRender(){
+function foodRender() {
   let contentRef = document.getElementById("menu");
   contentRef.innerHTML = "";
   for (let index = 0; index < 4; index++) {
@@ -32,48 +32,48 @@ function addtoBasket(index, button) {
   let itemRef = document.getElementById("item-basket");
   itemRef.innerHTML += `${itemTemplate(index)}`;
 
-  button.innerText = "Added";
-  if (button.innerText === "Added") {
+  button.innerHTML = "Added";
+  if (button.innerHTML === "Added") {
     button.disabled = true;
   }
 }
 
-function clearBasket(){
+function clearBasket() {
   let clearRef = document.getElementById("item-basket");
   clearRef.innerHTML = "";
 
   let buttons = document.querySelectorAll(".buy");
 
-  buttons.forEach(button => {
-    button.innerText = "Add to basket";
+  buttons.forEach((button) => {
+    button.innerHTML = "Add to basket";
     button.disabled = false;
   });
-
 }
 
-function addItem(index, button){
-  let counter = button.parentElement.querySelector('.food_counter');
-  counter.innerText = parseInt(counter.innerText) + 1;
-  counter.innerText = amount
+function addItem(index, button) {
+  let parent = button.parentElement;
+
+  let counter = parent.querySelector(".food_counter");
+
+  let amount = parseInt(counter.innerHTML) + 1;
+  counter.innerText = amount;
+
+  let priceRef = parent.querySelector(".item_price");
 
   let price = foods[index].price;
+  let newPrice = price * amount;
 
-  newPrice = price * amount;
-  
-  return newPrice;
-
+  priceRef.innerText = newPrice.toFixed(2) + "€";
 }
 
-function removeItem(index, button){
-  let counter = button.parentElement.querySelector('.food_counter');
+function removeItem(index, button) {
+  let counter = button.parentElement.querySelector(".food_counter");
   counter.innerText = parseInt(counter.innerText) - 1;
 
   let buttons = document.querySelectorAll(".buy");
   if (counter.innerHTML < 1) {
-    button.closest('.item').remove(); 
+    button.closest(".item").remove();
     buttons[index].innerText = "Add to basket";
     buttons[index].disabled = false;
   }
 }
-
-

@@ -26,7 +26,7 @@ function itemTemplate(index){
     <img src="./assets/icons/delete.svg" class="delete" onclick="removeItem(${index}, this)">
     <p class="food_counter">1</p>
     <button class="add_item" onclick="addItem(${index}, this)">+</button>
-    <p>${foods[index].price.toFixed(2) + "€"}</p>
+    <p class="item_price">${foods[index].price.toFixed(2) + "€"}</p>
     </section>
    </div> 
     `

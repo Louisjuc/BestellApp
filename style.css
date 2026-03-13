@@ -108,7 +108,8 @@ h1 {
   align-items: flex-end;
   gap: 10px;
   height: 60px;
-  margin: 20px 0;
+  width: 144%;
+  margin: 45px 0;
 }
 
 h2 {
@@ -173,18 +174,32 @@ h2 {
   color: #fff;
 }
 
-
-#basket {
-  background-color: #363534;
-  color: #fdeadc;
-  position: absolute;
-  right: 0;
-  top: 0px;
-  padding: 80px 40px;
-  border-radius: 20px 0 0 20px;
-  width: 350px;
-  text-align: center;
+.content_wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
+
+.content{
+ flex: 1;
+}
+
+.basket_wrapper{
+  background-color: #363534;
+padding: 10px;
+  text-align: center;
+  color: #fdeadc;
+  width: clamp(200px, calc(145.455px + 17.045vw), 350px);
+  position: sticky;
+top: 0;
+margin-top: 45px;
+border-radius: 20px 0 0 20px;
+}
+
+#salad_menu, #menu, #pizza_menu{
+  padding: 0 10%;
+}
+
 
 #buy_items {
   border-radius: 60px;
@@ -209,7 +224,7 @@ h2 {
   background-color: #fdeadc;
   color: #000;
   border-radius: 20px;
-  margin: 20px 0;
+  margin: 20px;
   padding: 15px;
   text-align: left;
 }
@@ -268,9 +283,9 @@ footer {
   justify-content: center;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 780px) {
 
-#basket{
+#basket, .basket_wrapper{
   display: none;
 }
 
@@ -317,6 +332,10 @@ footer {
 .buy_area {
   align-items: flex-start;
   gap: 10px;
+}
+
+.headline_section {
+  width: inherit;
 }
 
 }
