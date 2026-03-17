@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bestellapp</title>
+    <link rel="icon" type="image/x-icon" href="./assets/icons/favicon.svg">
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./style/standard.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -71,18 +72,22 @@
     </section>
   </section> 
 <section class="basket_wrapper closed_basket" id="basket_wrapper" class="">
+  <h3>Your Basket</h3>
   <section id="basket" >
-    <h3>Your Basket</h3>
+    
          <div id="item-basket"></div>
-    <button id="buy_items" popovertarget="my_modal" onclick="clearBasket()">Buy now</button>
-  <h3>Total: <span id="total_number">0</span></h3>
+    
 
-  <div id="my_modal" popover>
-   <img src="./assets/icons/delivery.png" class="truck" alt="Besttellung aufgegeben icon">
-    <p><strong>Order confirmed!</strong><br>
-    Your food is on the way!</p>
-  </div>
+ 
+
   </section>
+  <button id="buy_items" popovertarget="my_modal" onclick="clearBasket()">Buy now</button>
+  <h3>Total: <span id="total_number">0</span></h3>
+  <div id="my_modal" popover>
+    <img src="./assets/icons/delivery.png" class="truck" alt="Besttellung aufgegeben icon">
+     <p><strong>Order confirmed!</strong><br>
+     Your food is on the way!</p>
+   </div>
 </section>
 </div><!-- Content Wrapper-->
     </main>

@@ -1,3 +1,5 @@
+
+
 function render() {
   foodRender();
   pizzaRender();
@@ -37,6 +39,8 @@ function addtoBasket(index, button) {
     button.disabled = true;
   }
   totalcalculate()
+
+  document.getElementById('buy_items').disabled = false;
 }
 
 function clearBasket() {
@@ -45,10 +49,14 @@ function clearBasket() {
 
   let buttons = document.querySelectorAll(".buy");
 
-  buttons.forEach((button) => {
-    button.innerHTML = "Add to basket";
-    button.disabled = false;
+  buttons.forEach((element) => {
+    element.innerHTML = "Add to basket";
+    element.disabled = false;
   });
+
+  totalcalculate()
+
+
 }
 
 function addItem(index, button) {
@@ -118,3 +126,5 @@ function activeBasket(){
 
     document.getElementById('total_number').innerHTML = total.toFixed(2) + "€";
   }
+
+  document.getElementById('buy_items').disabled = true;

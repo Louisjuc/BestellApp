@@ -1,10 +1,10 @@
-
-
-function foodTemplate(index){
-    return `        <section id="food_template_section">
+function foodTemplate(index) {
+  return `        <section id="food_template_section">
     <div class="food_card">
     <div class="food_info">
-        <img src="./assets/img/${foods[index].img}" class="food_img" alt="Food image">
+        <img src="./assets/img/${
+          foods[index].img
+        }" class="food_img" alt="Food image">
         <div>
         <h3>${foods[index].name}</h3>
         <p>${foods[index].description}</p>
@@ -16,11 +16,11 @@ function foodTemplate(index){
     </div>
     </div>
 </section>
-    `
+    `;
 }
 
-function itemTemplate(index){
-    return ` <div class="item">
+function itemTemplate(index) {
+  return ` <div class="item">
     <h4>${foods[index].name}</h4>
     <section class="basket_numbers">
     <img src="./assets/icons/delete.svg" class="delete" onclick="removeItem(${index}, this)">
@@ -29,9 +29,5 @@ function itemTemplate(index){
     <p class="item_price">${foods[index].price.toFixed(2) + "€"}</p>
     </section>
    </div> 
-    `
+    `;
 }
-
-
-
-

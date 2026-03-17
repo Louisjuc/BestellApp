@@ -12,7 +12,7 @@ body.no-scroll {
   overflow: hidden;
 }
 
-p{
+p {
   font-size: 14px;
   line-height: 1.3em;
 }
@@ -40,13 +40,15 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .logo {
   width: 92px;
 }
 
-.mobile-nav{
+.mobile-nav {
   display: none;
 }
 
@@ -94,12 +96,10 @@ h1 {
   text-align: center;
   padding: 4% 5%;
   max-width: 1440px;
- 
 }
 .star {
   width: 18px;
 }
-
 
 .menu {
   max-width: 1440px;
@@ -113,7 +113,6 @@ h1 {
   align-items: flex-end;
   gap: 10px;
   height: 60px;
-  width: 144%;
   margin: 45px 0;
 }
 
@@ -179,33 +178,56 @@ h2 {
   color: #fff;
 }
 
-.content_wrapper{
+.content_wrapper {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
-.content{
- flex: 1;
+.content {
+  flex: 1;
 }
 
-.basket_wrapper{
+.basket_wrapper {
   background-color: #363534;
   padding: 10px;
   text-align: center;
   color: #fdeadc;
-  width: clamp(200px, calc(145.455px + 17.045vw), 350px);
+  width: clamp(100px, calc(41.463px + 18.293vw), 250px);
   position: sticky;
   top: 0;
   margin-top: 45px;
-  border-radius: 20px 0 0 20px;
+  height: 100vh;
 }
 
-#salad_menu, #menu, #pizza_menu{
+h4{
+  line-height: 1.1em;
+  padding-bottom: 5px;
+}
+
+#basket {
+  height: 250px;
+  overflow-y: auto;
+  margin: 0px 0 20px 0;
+}
+
+#basket::-webkit-scrollbar {
+  width: 3px;
+  scrollbar-color: black;
+}
+
+#basket::-webkit-scrollbar-thumb {
+  background-color: #e76c1f;
+  border-radius: 10‚px;
+}
+
+#salad_menu,
+#menu,
+#pizza_menu {
   padding: 0 10%;
 }
-
 
 #buy_items {
   border-radius: 60px;
@@ -229,10 +251,10 @@ h2 {
 .item {
   background-color: #fdeadc;
   color: #000;
-  border-radius: 20px;
-  margin: 20px;
-  padding: 15px;
-  text-align: left;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+
 }
 .delete {
   width: 10px;
@@ -248,11 +270,8 @@ h2 {
 .basket_numbers {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   gap: 10px;
-}
-
-h4 {
-  padding: 0 0 20px 0;
 }
 
 .add_item:hover {
@@ -260,7 +279,8 @@ h4 {
 }
 
 .delete:hover {
-  filter: brightness(0) saturate(100%) invert(52%) sepia(29%) saturate(7287%) hue-rotate(354deg) brightness(97%) contrast(85%);
+  filter: brightness(0) saturate(100%) invert(52%) sepia(29%) saturate(7287%)
+    hue-rotate(354deg) brightness(97%) contrast(85%);
 }
 
 .truck {
@@ -289,102 +309,105 @@ footer {
   justify-content: center;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 1080px) {
+  .food_info {
+    flex-direction: column;
+  }
 
+  .food_card {
+    flex-direction: column;
+    align-items: flex-start;
+    width: inherit;
+  }
+  .food_card img {
+    width: inherit;
+  }
 
+  .food_info {
+    width: 100%;
+  }
 
-.food_info {
-  flex-direction: column;
+  .header {
+    width: 90%;
+    object-fit: cover;
+    margin: 5%;
+    border-radius: 15px;
+  }
+
+  .burgerhouse-icon {
+    width: 120px;
+    height: 120px;
+    bottom: -80px;
+  }
+
+  .mobile-nav {
+    display: inherit;
+    background-color: #363534;
+    display: flex;
+    padding: 25px;
+    justify-content: space-evenly;
+    position: sticky;
+    bottom: 0;
+  }
+
+  .buy_area {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .headline_section {
+    width: inherit;
+  }
+
+  .content_wrapper {
+    display: inherit;
+  }
+
+  .basket_wrapper {
+    background-color: #363534;
+    border-radius: 0px;
+    padding: 10px;
+    text-align: center;
+    color: #fdeadc;
+    width: inherit;
+    margin-top: 0px;
+    width: inherit;
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0px;
+    height: 100vh;
+    transition: all 250ms ease-in-out;
+  }
+
+  .closed_basket {
+    transform: translateY(100%);
+  }
+
+  #mobile_basket {
+    position: relative;
+  }
+
+  #item_number {
+    color: #e76c1f;
+    position: absolute;
+    border-radius: 30px;
+    top: 15px;
+    padding: 2px;
+    right: 65px;
+    background-color: #fdeadc;
+  }
+
+  footer {
+    gap: 5px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-.food_card {
-  flex-direction: column;
-  align-items: flex-start;
-  width:inherit;
-}
-.food_card img {
-  width: inherit;
-}
-
-.food_info {
-  width: 100%;
-}
-
-.header {
-  width: 90%;
-  object-fit: cover;
-  margin: 5%;
-  border-radius: 15px;
-}
-
-.burgerhouse-icon {
- width: 120px;
- height: 120px;
-  bottom: -80px;
-}
-
-.mobile-nav{
-  display: inherit;
-  background-color: #363534;
-  display: flex;
-  padding: 25px;
-  justify-content: space-evenly;
-  position: sticky;
-  bottom: 0;
-}
-
-.buy_area {
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.headline_section {
-  width: inherit;
-}
-
-
-.content_wrapper {
-  display:inherit;
-
-}
-
-.basket_wrapper{
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  background-color: #363534;
-  border-radius:0px;
-padding: 10px;
-  text-align: center;
-  color: #fdeadc;
-  width: inherit;
-margin-top: 0px;
-width: inherit;
-position: fixed;
-right: 0;
-left: 0;
-bottom:0px;
-height: 100vh;
-transition: all 250ms ease-in-out;
-}
-
-.closed_basket{
-  transform: translateY(100%);
-}
-
-#mobile_basket{
-  position: relative;
-
-}
-
-#item_number{
-  color: #e76c1f;
-  position: absolute;
-  border-radius: 30px;
-  top: 15px;
-  padding: 2px;
-  right: 65px;
-  background-color: #FDEADC ;
-}
-
-
+@media (min-width: 1200px) {
+  .header-content {
+    padding: 25px 5%;
+  }
 }
