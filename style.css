@@ -3,6 +3,14 @@
   margin: 0;
 }
 
+button:hover{
+  cursor: pointer;
+}
+
+:hover{
+  transition: all 600ms ease;
+}
+
 body {
   font-family: "Palanquin", sans-serif;
   color: #363534;
@@ -11,6 +19,20 @@ body {
 body.no-scroll {
   overflow: hidden;
 }
+
+.close_dialog{
+  position: absolute;
+  right: 10%;
+  top: 10%;
+  background: none;
+  border: 0px;
+  color: #fff;
+}
+
+.close_dialog:hover{
+  color: #e76c1f;
+}
+
 
 p {
   font-size: 14px;

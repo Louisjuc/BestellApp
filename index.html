@@ -81,13 +81,14 @@
  
 
   </section>
-  <button id="buy_items" popovertarget="my_modal" onclick="clearBasket()">Buy now</button>
-  <h3>Total: <span id="total_number">0</span></h3>
-  <div id="my_modal" popover>
+  <button id="buy_items"  onclick="clearBasket()">Buy now</button>
+  <h3>Total: <span id="total_number"></span></h3>
+  <dialog id="my_modal">
+    <button class="close_dialog" onclick="closeDialog()">X</button>
     <img src="./assets/icons/delivery.png" class="truck" alt="Besttellung aufgegeben icon">
      <p><strong>Order confirmed!</strong><br>
      Your food is on the way!</p>
-   </div>
+     </dialog>
 </section>
 </div><!-- Content Wrapper-->
     </main>

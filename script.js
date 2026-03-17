@@ -1,5 +1,3 @@
-
-
 function render() {
   foodRender();
   pizzaRender();
@@ -38,9 +36,9 @@ function addtoBasket(index, button) {
   if (button.innerHTML === "Added") {
     button.disabled = true;
   }
-  totalcalculate()
+  totalcalculate();
 
-  document.getElementById('buy_items').disabled = false;
+  document.getElementById("buy_items").disabled = false;
 }
 
 function clearBasket() {
@@ -54,9 +52,24 @@ function clearBasket() {
     element.disabled = false;
   });
 
-  totalcalculate()
+  document.getElementById("my_modal").showModal();
 
+  switch (clearRef.innerHTML === "") {
+    case true:
+      document.getElementById("buy_items").disabled = true;
+      break;
+    case false:
+      document.getElementById("buy_items").disabled = false;
+      break;
+    default:
+      break;
+  }
 
+  totalcalculate();
+}
+
+function closeDialog() {
+  document.getElementById("my_modal").close();
 }
 
 function addItem(index, button) {
@@ -74,7 +87,7 @@ function addItem(index, button) {
 
   priceRef.innerText = newPrice.toFixed(2) + "€";
 
-  totalcalculate()
+  totalcalculate();
 }
 
 function removeItem(index, button) {
@@ -99,32 +112,30 @@ function removeItem(index, button) {
     buttons[index].disabled = false;
   }
 
-  totalcalculate()
+  totalcalculate();
 }
 
-function openBasket(){
+function openBasket() {
   document.getElementById("basket_wrapper").classList.toggle("closed_basket");
   document.body.classList.toggle("no-scroll");
 }
 
-function activeBasket(){
+function activeBasket() {
   let basketRef = document.getElementById("item-basket");
-  
-    if (basketRef.innerText !== "") {
-      document.getElementById("mobile_basket").classList.toggle("active_basket");
-    }
+
+  if (basketRef.innerText !== "") {
+    document.getElementById("mobile_basket").classList.toggle("active_basket");
+  }
+}
+
+function totalcalculate() {
+  let total = 0;
+  let priceElements = document.querySelectorAll(".item_price");
+
+  for (let index = 0; index < priceElements.length; index++) {
+    let price = parseFloat(priceElements[index].innerText);
+    total += price;
   }
 
-  function totalcalculate(){
-    let total = 0;
-    let priceElements = document.querySelectorAll(".item_price");
-
-    for (let index = 0; index < priceElements.length; index++) {
-      let price = parseFloat(priceElements[index].innerText);
-      total += price;
-    }
-
-    document.getElementById('total_number').innerHTML = total.toFixed(2) + "€";
-  }
-
-  document.getElementById('buy_items').disabled = true;
+  document.getElementById("total_number").innerHTML = total.toFixed(2) + "€";
+}
