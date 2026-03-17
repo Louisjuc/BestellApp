@@ -36,6 +36,7 @@ function addtoBasket(index, button) {
   if (button.innerHTML === "Added") {
     button.disabled = true;
   }
+  totalcalculate()
 }
 
 function clearBasket() {
@@ -64,11 +65,24 @@ function addItem(index, button) {
   let newPrice = price * amount;
 
   priceRef.innerText = newPrice.toFixed(2) + "€";
+
+  totalcalculate()
 }
 
 function removeItem(index, button) {
-  let counter = button.parentElement.querySelector(".food_counter");
-  counter.innerText = parseInt(counter.innerText) - 1;
+  let parent = button.parentElement;
+
+  let counter = parent.querySelector(".food_counter");
+
+  let amount = parseInt(counter.innerHTML) - 1;
+  counter.innerText = amount;
+
+  let priceRef = parent.querySelector(".item_price");
+
+  let price = foods[index].price;
+  let newPrice = price * amount;
+
+  priceRef.innerText = newPrice.toFixed(2) + "€";
 
   let buttons = document.querySelectorAll(".buy");
   if (counter.innerHTML < 1) {
@@ -76,4 +90,31 @@ function removeItem(index, button) {
     buttons[index].innerText = "Add to basket";
     buttons[index].disabled = false;
   }
+
+  totalcalculate()
 }
+
+function openBasket(){
+  document.getElementById("basket_wrapper").classList.toggle("closed_basket");
+  document.body.classList.toggle("no-scroll");
+}
+
+function activeBasket(){
+  let basketRef = document.getElementById("item-basket");
+  
+    if (basketRef.innerText !== "") {
+      document.getElementById("mobile_basket").classList.toggle("active_basket");
+    }
+  }
+
+  function totalcalculate(){
+    let total = 0;
+    let priceElements = document.querySelectorAll(".item_price");
+
+    for (let index = 0; index < priceElements.length; index++) {
+      let price = parseFloat(priceElements[index].innerText);
+      total += price;
+    }
+
+    document.getElementById('total_number').innerHTML = total.toFixed(2) + "€";
+  }

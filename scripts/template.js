@@ -4,7 +4,7 @@ function foodTemplate(index){
     return `        <section id="food_template_section">
     <div class="food_card">
     <div class="food_info">
-        <img src="./assets/img/${foods[index].img}" class="food_img">
+        <img src="./assets/img/${foods[index].img}" class="food_img" alt="Food image">
         <div>
         <h3>${foods[index].name}</h3>
         <p>${foods[index].description}</p>

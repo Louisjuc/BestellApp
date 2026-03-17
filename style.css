@@ -6,7 +6,10 @@
 body {
   font-family: "Palanquin", sans-serif;
   color: #363534;
- 
+}
+
+body.no-scroll {
+  overflow: hidden;
 }
 
 p{
@@ -91,10 +94,12 @@ h1 {
   text-align: center;
   padding: 4% 5%;
   max-width: 1440px;
+ 
 }
 .star {
   width: 18px;
 }
+
 
 .menu {
   max-width: 1440px;
@@ -137,7 +142,7 @@ h2 {
   background-color: #fdeadc;
   padding: 10px;
   gap: 5px;
-  border-radius: 20px;
+  border-radius: 10px;
   width: 630px;
   justify-content: space-between;
   margin: 20px 0;
@@ -146,7 +151,7 @@ h2 {
 .food_card img {
   width: 200px;
   object-fit: cover;
-  border-radius: 15px;
+  border-radius: 5px;
 }
 
 .food_info {
@@ -178,6 +183,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
 }
 
 .content{
@@ -186,14 +192,14 @@ h2 {
 
 .basket_wrapper{
   background-color: #363534;
-padding: 10px;
+  padding: 10px;
   text-align: center;
   color: #fdeadc;
   width: clamp(200px, calc(145.455px + 17.045vw), 350px);
   position: sticky;
-top: 0;
-margin-top: 45px;
-border-radius: 20px 0 0 20px;
+  top: 0;
+  margin-top: 45px;
+  border-radius: 20px 0 0 20px;
 }
 
 #salad_menu, #menu, #pizza_menu{
@@ -254,7 +260,7 @@ h4 {
 }
 
 .delete:hover {
-  filter: invert(1);
+  filter: brightness(0) saturate(100%) invert(52%) sepia(29%) saturate(7287%) hue-rotate(354deg) brightness(97%) contrast(85%);
 }
 
 .truck {
@@ -285,9 +291,7 @@ footer {
 
 @media (max-width: 780px) {
 
-#basket, .basket_wrapper{
-  display: none;
-}
+
 
 .food_info {
   flex-direction: column;
@@ -337,5 +341,50 @@ footer {
 .headline_section {
   width: inherit;
 }
+
+
+.content_wrapper {
+  display:inherit;
+
+}
+
+.basket_wrapper{
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: #363534;
+  border-radius:0px;
+padding: 10px;
+  text-align: center;
+  color: #fdeadc;
+  width: inherit;
+margin-top: 0px;
+width: inherit;
+position: fixed;
+right: 0;
+left: 0;
+bottom:0px;
+height: 100vh;
+transition: all 250ms ease-in-out;
+}
+
+.closed_basket{
+  transform: translateY(100%);
+}
+
+#mobile_basket{
+  position: relative;
+
+}
+
+#item_number{
+  color: #e76c1f;
+  position: absolute;
+  border-radius: 30px;
+  top: 15px;
+  padding: 2px;
+  right: 65px;
+  background-color: #FDEADC ;
+}
+
 
 }

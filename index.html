@@ -13,8 +13,8 @@
       rel="stylesheet"
     />
   </head>
-  <body onload="render()">
-    <header>
+  <body onload="render()" aria-hidden="true">
+    <header id="home">
       <section class="header-content">
         <img
           src="./assets/icons/bestell_logo.svg"
@@ -28,8 +28,8 @@
         </nav>
       </section>
       <section class="header_intro">
-      <img src="./assets/img/header.jpg" class="header" />
-      <img src="./assets/icons/logo_burger.png" class="burgerhouse-icon" />
+      <img src="./assets/img/header.jpg" class="header" alt="Headerbild"/>
+      <img src="./assets/icons/logo_burger.png" class="burgerhouse-icon" alt="Burgerhouse Logo"/>
     </section>
     </header>
 
@@ -38,7 +38,7 @@
         <div class="title_section">
           <h1><span class="orange">Burger</span>House</h1>
           <div class="reviews">
-            <img src="./assets/icons/star.svg" class="star" />
+            <img src="./assets/icons/star.svg" class="star" alt="Icon Bewertung"/>
             <p><strong>4,1</strong> (317)</p>
           </div>
         </div>
@@ -52,32 +52,30 @@
  <section class="content">
 
   <div class="headline_section">
-    <img src="./assets/icons/Chanese 1.svg" class="headline_icon" />
+    <img src="./assets/icons/Chanese 1.svg" class="headline_icon" alt="Burger Icon"/>
     <h2>Burger & Sandwiches</h2>
     </div>
 <section id="menu">
       </section>
       <div class="headline_section">
-        <img src="./assets/icons/Pizza 1.svg" class="headline_icon" />
+        <img src="./assets/icons/Pizza 1.svg" class="headline_icon" alt="Pizza Icon" />
         <h2>Pizza</h2></div>
         <section id="pizza_menu">
    
         </section>
       <div class="headline_section">
-        <img src="./assets/icons/Salad 1.svg" class="headline_icon" />
+        <img src="./assets/icons/Salad 1.svg" class="headline_icon" alt="Salat Icon"/>
         <h2>Salad</h2></div>
         <section id="salad_menu">
    
     </section>
   </section> 
-<section class="basket_wrapper">
-  <section id="basket">
+<section class="basket_wrapper closed_basket" id="basket_wrapper" class="">
+  <section id="basket" >
     <h3>Your Basket</h3>
          <div id="item-basket"></div>
     <button id="buy_items" popovertarget="my_modal" onclick="clearBasket()">Buy now</button>
-  <p>Subtotal</p>
-  <p>Delivery fee</p>
-  <h3>Total</h3>
+  <h3>Total: <span id="total_number">0</span></h3>
 
   <div id="my_modal" popover>
    <img src="./assets/icons/delivery.png" class="truck" alt="Besttellung aufgegeben icon">
@@ -93,11 +91,13 @@
       <p>Imprint</p>
       <p>Cookie Preferences</p>
     </footer>
+
     <section class="mobile-nav">
-      <img src="./assets/icons/home.svg">
-      <img src="./assets/icons/person.svg">
-      <img src="./assets/icons/takeout_dining_2.svg">
-      <img src="./assets/icons/shopping_cart.svg">
+
+      <a href="#home"><img src="./assets/icons/home.svg" alt="Home Icon"></a>
+      <img src="./assets/icons/person.svg" alt="Person Icon">
+      <a href="#menu"><img src="./assets/icons/takeout_dining_2.svg" alt="takeout Icon"></a>
+      <img src="./assets/icons/shopping_cart.svg" id="mobile_basket" alt="Warenkorb Icon" onclick="openBasket()" >
     </section>
     <script src="./scripts/template.js"></script>
     <script src="./scripts/db.js"></script>
