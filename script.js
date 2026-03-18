@@ -1,3 +1,5 @@
+let basket = [];
+
 function render() {
   foodRender();
   pizzaRender();
@@ -29,21 +31,32 @@ function saladRender() {
 }
 
 function addtoBasket(index, button) {
-  let itemRef = document.getElementById("item-basket");
-  itemRef.innerHTML += `${itemTemplate(index)}`;
+  basket.push(index);
 
   button.innerHTML = "Added";
   if (button.innerHTML === "Added") {
     button.disabled = true;
   }
+
+  renderBasket();
   totalcalculate();
 
   document.getElementById("buy_items").disabled = false;
 }
 
+function renderBasket() {
+  let itemRef = document.getElementById("item-basket");
+  itemRef.innerHTML = "";
+
+  for (let index = 0; index < basket.length; index++) {
+    itemRef.innerHTML += itemTemplate(basket[index]);
+  }
+}
+
 function clearBasket() {
-  let clearRef = document.getElementById("item-basket");
-  clearRef.innerHTML = "";
+  basket = [];
+
+  renderBasket();
 
   let buttons = document.querySelectorAll(".buy");
 
@@ -53,6 +66,7 @@ function clearBasket() {
   });
 
   document.getElementById("my_modal").showModal();
+  totalcalculate();
 
   switch (clearRef.innerHTML === "") {
     case true:
@@ -64,8 +78,6 @@ function clearBasket() {
     default:
       break;
   }
-
-  totalcalculate();
 }
 
 function closeDialog() {
