@@ -1,5 +1,3 @@
-let basket = [];
-
 function render() {
   foodRender();
   pizzaRender();
@@ -31,17 +29,33 @@ function saladRender() {
 }
 
 function addtoBasket(index, button) {
-  basket.push(index);
-
-  button.innerHTML = "Added";
-  if (button.innerHTML === "Added") {
-    button.disabled = true;
+  let itemRef = document.getElementById("item-basket");
+  
+  if (button.innerText === "Added") {
+    let existingItem = document.getElementById(`item-${index}`);
+    addItem(index, existingItem);
+  } else {
+    itemRef.innerHTML += itemTemplate(index);
+    button.innerText = "Added";
   }
 
-  renderBasket();
   totalcalculate();
+}
 
-  document.getElementById("buy_items").disabled = false;
+function addItem(index, button) {
+  let parent = button.parentElement;
+  let counter = parent.querySelector(".food_counter");
+  let amount = parseInt(counter.innerHTML) + 1;
+  counter.innerText = amount;
+
+  let priceRef = parent.querySelector(".item_price");
+
+  let price = foods[index].price;
+
+  let newPrice = price * amount;
+  priceRef.innerText = newPrice.toFixed(2) + "€";
+
+  totalcalculate();
 }
 
 function renderBasket() {
@@ -54,43 +68,31 @@ function renderBasket() {
 }
 
 function clearBasket() {
-  basket = [];
-
   renderBasket();
-
   let buttons = document.querySelectorAll(".buy");
-
   buttons.forEach((element) => {
     element.innerHTML = "Add to basket";
     element.disabled = false;
   });
-
   document.getElementById("my_modal").showModal();
   totalcalculate();
-
-  switch (clearRef.innerHTML === "") {
-    case true:
-      document.getElementById("buy_items").disabled = true;
-      break;
-    case false:
-      document.getElementById("buy_items").disabled = false;
-      break;
-    default:
-      break;
-  }
 }
 
 function closeDialog() {
   document.getElementById("my_modal").close();
 }
 
-function addItem(index, button) {
+
+
+function removeItem(index, button) {
   let parent = button.parentElement;
-
   let counter = parent.querySelector(".food_counter");
-
-  let amount = parseInt(counter.innerHTML) + 1;
+  let amount = parseInt(counter.innerHTML) - 1;
   counter.innerText = amount;
+
+  if (counter.innerHTML < 1) {
+    deleteItem(index, button)
+  }
 
   let priceRef = parent.querySelector(".item_price");
 
@@ -102,29 +104,12 @@ function addItem(index, button) {
   totalcalculate();
 }
 
-function removeItem(index, button) {
-  let parent = button.parentElement;
-
-  let counter = parent.querySelector(".food_counter");
-
-  let amount = parseInt(counter.innerHTML) - 1;
-  counter.innerText = amount;
-
-  let priceRef = parent.querySelector(".item_price");
-
-  let price = foods[index].price;
-  let newPrice = price * amount;
-
-  priceRef.innerText = newPrice.toFixed(2) + "€";
-
+function deleteItem(index, button) {
   let buttons = document.querySelectorAll(".buy");
-  if (counter.innerHTML < 1) {
-    button.closest(".item").remove();
-    buttons[index].innerText = "Add to basket";
-    buttons[index].disabled = false;
-  }
 
-  totalcalculate();
+  button.closest(".item").remove();
+  buttons[index].innerText = "Add to basket";
+  buttons[index].disabled = false;
 }
 
 function openBasket() {
@@ -148,6 +133,5 @@ function totalcalculate() {
     let price = parseFloat(priceElements[index].innerText);
     total += price;
   }
-
   document.getElementById("total_number").innerHTML = total.toFixed(2) + "€";
 }

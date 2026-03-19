@@ -1,6 +1,7 @@
 * {
   scroll-behavior: smooth;
   margin: 0;
+  font-size: 16px;
 }
 
 button:hover{
@@ -35,7 +36,6 @@ body.no-scroll {
 
 
 p {
-  font-size: 14px;
   line-height: 1.3em;
 }
 
@@ -58,12 +58,11 @@ h2 {
 
 .header-content {
   background-color: #e76c1f;
-  padding: 25px 10%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1440px;
   margin: 0 auto;
+  padding: 20px 5%;
 }
 
 .logo {
@@ -99,8 +98,6 @@ nav {
 
 .burgerhouse-icon {
   width: 180px;
-  height: 180px;
-  border: 6px solid #fdeadc;
   border-radius: 100%;
   right: 50%;
   left: 50%;
@@ -116,7 +113,7 @@ h1 {
 
 .rest_info {
   text-align: center;
-  padding: 4% 5%;
+  padding: 5%;
   max-width: 1440px;
 }
 .star {
@@ -172,13 +169,16 @@ h2 {
 .food_card img {
   width: 200px;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 10px;
+}
+
+.food_description{
+  width: 300px;
 }
 
 .food_info {
   display: flex;
   gap: 10px;
-  width: 500px;
 }
 
 .buy_area {
@@ -214,14 +214,14 @@ h2 {
 
 .basket_wrapper {
   background-color: #363534;
-  padding: 10px;
+  padding: 3%;
   text-align: center;
   color: #fdeadc;
   width: clamp(100px, calc(41.463px + 18.293vw), 250px);
-  position: sticky;
-  top: 0;
   margin-top: 45px;
   height: 100vh;
+  position: sticky;
+  top: 0px;
 }
 
 h4{
@@ -229,18 +229,23 @@ h4{
   padding-bottom: 5px;
 }
 
-#basket {
-  height: 250px;
+.basket_inner{
+  max-height: 300px;
   overflow-y: auto;
   margin: 0px 0 20px 0;
 }
 
-#basket::-webkit-scrollbar {
+#basket {
+  position: sticky;
+  top: 0;
+}
+
+.basket_inner::-webkit-scrollbar {
   width: 3px;
   scrollbar-color: black;
 }
 
-#basket::-webkit-scrollbar-thumb {
+.basket_inner::-webkit-scrollbar-thumb {
   background-color: #e76c1f;
   border-radius: 10‚px;
 }
@@ -266,9 +271,7 @@ h4{
   color: #e76c1f;
 }
 
-#basket h3 {
-  font-size: 32px;
-}
+
 
 .item {
   background-color: #fdeadc;
@@ -366,7 +369,7 @@ footer {
     display: inherit;
     background-color: #363534;
     display: flex;
-    padding: 25px;
+    padding: 10px;
     justify-content: space-evenly;
     position: sticky;
     bottom: 0;
@@ -388,7 +391,7 @@ footer {
   .basket_wrapper {
     background-color: #363534;
     border-radius: 0px;
-    padding: 10px;
+    padding: 0 3%;
     text-align: center;
     color: #fdeadc;
     width: inherit;
@@ -398,7 +401,6 @@ footer {
     right: 0;
     left: 0;
     bottom: 0px;
-    height: 100vh;
     transition: all 250ms ease-in-out;
   }
 
@@ -419,6 +421,8 @@ footer {
     right: 65px;
     background-color: #fdeadc;
   }
+
+
 
   footer {
     gap: 5px;
