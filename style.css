@@ -188,6 +188,10 @@ h2 {
   align-items: flex-end;
 }
 
+.buy_area p{
+font-weight: 800;
+}
+
 .buy {
   border-radius: 20px;
   background-color: #fff;
