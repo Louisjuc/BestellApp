@@ -27,7 +27,7 @@ function itemTemplate(index) {
     <p class="delete" onclick="removeItem(${index}, this)">-</p>
     <p class="food_counter">1</p>
     <p class="add_item" onclick="addItem(${index}, this)">+</p>
-    <p class="item_price">${foods[index].price.toFixed(2) + "€"}</p>
+    <p class="item_price" >${foods[index].price.toFixed(2) + "€"}</p>
     </section>
    </div> 
     `;

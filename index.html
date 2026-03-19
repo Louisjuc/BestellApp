@@ -17,6 +17,7 @@
   <body onload="render()">
     <header id="home">
       <section class="header-content">
+        <div class="header_inner">
         <img
           src="./assets/icons/bestell_logo.svg"
           alt="BestellApp Logo"
@@ -27,6 +28,7 @@
           <div class="bar"></div>
           <div class="bar"></div>
         </nav>
+      </div>
       </section>
       <section class="header_intro">
       <img src="./assets/img/header.jpg" class="header" alt="Headerbild"/>
@@ -77,11 +79,11 @@
     <h3>Your Basket</h3>
     <section class="basket_inner">
          <div id="item-basket"></div>
-    
-
         </section>
-         <button id="buy_items"  onclick="clearBasket()">Buy now</button>
-         <h3>Total: <span id="total_number"></span></h3>    
+        <h3>Subtotal: <span id="subtotal_number"></span></h3>
+        <h3>Delivery Fee: <span class="orange">4,99€</span></h3>
+         <h3 class="total">Total: <span class="total_number"></span></h3> 
+         <button id="buy_items"  onclick="clearBasket()">Buy now <span class="total_number"></span></button>   
   </section>
   
   <dialog id="my_modal">
@@ -106,7 +108,12 @@
       <a href="#home"><img src="./assets/icons/home.svg" alt="Home Icon"></a>
       <img src="./assets/icons/person.svg" alt="Person Icon">
       <a href="#menu"><img src="./assets/icons/takeout_dining_2.svg" alt="takeout Icon"></a>
+      <div class="mobile_basket_wrapper">
       <img src="./assets/icons/shopping_cart.svg" id="mobile_basket" alt="Warenkorb Icon" onclick="openBasket()" >
+      <p id="item_counter_mobile">0</p>
+      </div>
+      
+
     </section>
     <script src="./scripts/template.js"></script>
     <script src="./scripts/db.js"></script>

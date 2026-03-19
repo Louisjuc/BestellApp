@@ -32,6 +32,7 @@ body.no-scroll {
 
 .close_dialog:hover{
   color: #e76c1f;
+  cursor: pointer;
 }
 
 
@@ -44,7 +45,6 @@ h2 {
 }
 
 .header_intro {
-  max-width: 1440px;
   position: relative;
   margin: 0 auto;
 }
@@ -58,10 +58,14 @@ h2 {
 
 .header-content {
   background-color: #e76c1f;
+}
+
+.header_inner{
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
+  max-width: 1440px;
   padding: 20px 5%;
 }
 
@@ -130,6 +134,7 @@ h1 {
   padding: 0 10%;
   display: flex;
   align-items: flex-end;
+  
   gap: 10px;
   height: 60px;
   margin: 45px 0;
@@ -202,13 +207,13 @@ font-weight: 800;
 .buy:hover {
   background-color: #e76c1f;
   color: #fff;
+  cursor: pointer;
 }
 
 .content_wrapper {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -259,11 +264,22 @@ h4{
 #menu,
 #pizza_menu {
   padding: 0 10%;
+    max-width: 1440px;
+}
+
+.total{
+  margin: 10px 0 0 0;
+  border-top: 3px solid #fff;
+}
+
+#total_number, #subtotal_number, .orange{
+  color:#E76C1F;
 }
 
 #buy_items {
   border-radius: 60px;
-  padding: 15px 30px;
+  padding: 5px 30px;
+  margin: 20px 0;
   background-color: #e76c1f;
   border: none;
   color: #fff;
@@ -274,6 +290,7 @@ h4{
 #buy_items:hover {
   background-color: #fff;
   color: #e76c1f;
+  cursor: pointer;
 }
 
 
@@ -306,12 +323,15 @@ h4{
 
 .add_item:hover {
   color: #e76c1f;
+  cursor: pointer;
 }
 
 .delete:hover {
   filter: brightness(0) saturate(100%) invert(52%) sepia(29%) saturate(7287%)
     hue-rotate(354deg) brightness(97%) contrast(85%);
+    cursor: pointer;
 }
+
 
 .truck {
   width: 50px;
@@ -325,6 +345,8 @@ h4{
   border-radius: 30px;
   border: none;
 }
+
+
 
 #my_modal::backdrop {
   background-color: rgba(69, 68, 68, 0.4);
@@ -370,19 +392,36 @@ footer {
     bottom: -80px;
   }
 
+  .mobile_basket_wrapper{
+    position: relative;
+  }
+
   .mobile-nav {
     display: inherit;
     background-color: #363534;
     display: flex;
-    padding: 10px;
+    padding: 20px 10px;
     justify-content: space-evenly;
     position: sticky;
     bottom: 0;
+    align-items: center;
   }
 
   .buy_area {
     align-items: flex-start;
     gap: 10px;
+  }
+
+
+  #item_counter_mobile{
+    color: #E76C1F;
+    background-color: #FDEADC;
+    position:absolute;
+    padding: 0px 6px 2px 6px;
+    right: -6px;
+        top: -5px;
+    border-radius: 100%;
+    text-align:center;
   }
 
   .buy_area p{
@@ -419,9 +458,14 @@ footer {
 
   #mobile_basket {
     position: relative;
+    padding: 5px;
+    border-radius: 10px;
   }
 
+  .mobile_open_basket{
+    background-color: #E76C1F;
 
+  }
 
   #item_number {
     color: #e76c1f;
@@ -446,7 +490,5 @@ footer {
 }
 
 @media (min-width: 1200px) {
-  .header-content {
-    padding: 25px 5%;
-  }
+
 }

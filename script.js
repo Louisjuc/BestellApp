@@ -4,6 +4,8 @@ function render() {
   saladRender();
 }
 
+let mobileCounter = document.getElementById('item_counter_mobile');
+
 let buyButton = document.getElementById('buy_items');
 buyButton.disabled = true;
 
@@ -40,7 +42,7 @@ function addtoBasket(index, button) {
     itemRef.innerHTML += itemTemplate(index);
   }
   buyButton.disabled = false;
-  totalcalculate();
+  subCalculate()
 }
 
 function addItem(index, element) {
@@ -59,7 +61,7 @@ let counter = item.querySelector(".food_counter");
   let price = foods[index].price;
   priceRef.innerText = (price * amount).toFixed(2) + "€";
 
-  totalcalculate();
+  subCalculate()
 }
 
 function renderBasket() {
@@ -77,9 +79,16 @@ function clearBasket() {
     element.innerHTML = "Add to basket";
     element.disabled = false;
   });
-  document.getElementById("my_modal").showModal();
+  let modal = document.getElementById("my_modal");
+  modal.showModal();
+
+  setTimeout(() => {
+    modal.close();
+  }, 3000);
+  
   renderBasket();
-  totalcalculate();
+  subCalculate();
+  totalCalculate();
   buyButton.disabled = true;
 }
 
@@ -102,7 +111,8 @@ function removeItem(index, button) {
   let newPrice = price * amount;
   priceRef.innerText = newPrice.toFixed(2) + "€";
 
-  totalcalculate();
+  subCalculate()
+  totalCalculate();
 }
 
 function deleteItem(index, button) {
@@ -111,31 +121,47 @@ function deleteItem(index, button) {
   button.closest(".item").remove();
   buttons[index].innerText = "Add to basket";
   buttons[index].disabled = false;
-  totalcalculate();
+  subCalculate()
+  totalCalculate();
 }
 
 function openBasket() {
   document.getElementById("basket_wrapper").classList.toggle("closed_basket");
-  document.body.classList.toggle("no-scroll");
+  document.getElementById("mobile_basket").classList.toggle("mobile_open_basket");
 }
 
-function activeBasket() {
-  let basketRef = document.getElementById("item-basket");
-
-  if (basketRef.innerText !== "") {
-    document.getElementById("mobile_basket").classList.toggle("active_basket");
-  }
-
-  
-}
-
-function totalcalculate() {
+function subCalculate() {
   let total = 0;
-  let priceElements = document.querySelectorAll(".item_price");
+  let totalItems = 0;
+  let items = document.querySelectorAll(".item");
 
-  for (let index = 0; index < priceElements.length; index++) {
-    let price = parseFloat(priceElements[index].innerText);
-    total += price;
+  items.forEach(item => {
+    let index = parseInt(item.getAttribute("data-object-number")); 
+    let count = parseInt(item.querySelector(".food_counter").innerText);
+    let price = foods[index].price; 
+    total += price * count;
+    totalItems += count; 
+  });
+  document.getElementById("subtotal_number").innerText = total.toFixed(2) + "€";
+  mobileCounter.textContent = totalItems;
+
+  totalCalculate();
+}
+
+function totalCalculate() {
+  let subtotalText = document.getElementById("subtotal_number").innerText;
+  
+  let subtotal = parseFloat(subtotalText);
+  let deliveryCost = 4.99;
+
+  if (subtotal === 0) {
+    deliveryCost = 0;
   }
-  document.getElementById("total_number").innerHTML = total.toFixed(2) + "€";
+
+  let total = subtotal + deliveryCost;
+
+  document.querySelectorAll(".total_number").forEach((element) => {
+  element.innerHTML =  total.toFixed(2) + "€";  
+  }); 
+   
 }
