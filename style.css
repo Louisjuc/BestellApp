@@ -422,7 +422,9 @@ footer {
     background-color: #fdeadc;
   }
 
-
+  .food_description{
+    width: inherit;
+  }
 
   footer {
     gap: 5px;

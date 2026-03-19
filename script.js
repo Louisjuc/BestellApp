@@ -4,6 +4,9 @@ function render() {
   saladRender();
 }
 
+let buyButton = document.getElementById('buy_items');
+buyButton.disabled = true;
+
 function foodRender() {
   let contentRef = document.getElementById("menu");
   contentRef.innerHTML = "";
@@ -38,6 +41,7 @@ function addtoBasket(index, button) {
     itemRef.innerHTML += itemTemplate(index);
     button.innerText = "Added";
   }
+  buyButton.disabled = false;
 
   totalcalculate();
 }
@@ -68,14 +72,18 @@ function renderBasket() {
 }
 
 function clearBasket() {
-  renderBasket();
+  let basket = document.getElementById('basket');
+
+
   let buttons = document.querySelectorAll(".buy");
   buttons.forEach((element) => {
     element.innerHTML = "Add to basket";
     element.disabled = false;
   });
   document.getElementById("my_modal").showModal();
+  renderBasket();
   totalcalculate();
+  buyButton.disabled = true;
 }
 
 function closeDialog() {
