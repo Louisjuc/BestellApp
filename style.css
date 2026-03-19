@@ -113,7 +113,7 @@ h1 {
 
 .rest_info {
   text-align: center;
-  padding: 5%;
+  padding:50px 20px 30px 20px;
   max-width: 1440px;
 }
 .star {
@@ -224,6 +224,7 @@ h2 {
   top: 0px;
 }
 
+
 h4{
   line-height: 1.1em;
   padding-bottom: 5px;
@@ -282,7 +283,7 @@ h4{
 
 }
 .delete {
-  width: 10px;
+  width: 15px;
 }
 
 .add_item {
@@ -380,6 +381,10 @@ footer {
     gap: 10px;
   }
 
+  .buy_area p{
+    font-weight: 800;
+  }
+
   .headline_section {
     width: inherit;
   }
@@ -411,6 +416,8 @@ footer {
   #mobile_basket {
     position: relative;
   }
+
+
 
   #item_number {
     color: #e76c1f;
