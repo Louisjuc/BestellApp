@@ -4,12 +4,12 @@
   font-size: 16px;
 }
 
-button:hover{
+button:hover {
   cursor: pointer;
 }
 
-:hover{
-  transition: all 600ms ease;
+:hover {
+  transition: all 300ms ease;
 }
 
 body {
@@ -21,7 +21,7 @@ body.no-scroll {
   overflow: hidden;
 }
 
-.close_dialog{
+.close_dialog {
   position: absolute;
   right: 10%;
   top: 10%;
@@ -30,11 +30,10 @@ body.no-scroll {
   color: #fff;
 }
 
-.close_dialog:hover{
+.close_dialog:hover {
   color: #e76c1f;
   cursor: pointer;
 }
-
 
 p {
   line-height: 1.3em;
@@ -60,7 +59,7 @@ h2 {
   background-color: #e76c1f;
 }
 
-.header_inner{
+.header_inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -117,7 +116,7 @@ h1 {
 
 .rest_info {
   text-align: center;
-  padding:50px 20px 30px 20px;
+  padding: 50px 20px 30px 20px;
   max-width: 1440px;
 }
 .star {
@@ -134,7 +133,7 @@ h1 {
   padding: 0 10%;
   display: flex;
   align-items: flex-end;
-  
+
   gap: 10px;
   height: 60px;
   margin: 45px 0;
@@ -177,7 +176,7 @@ h2 {
   border-radius: 10px;
 }
 
-.food_description{
+.food_description {
   width: 300px;
 }
 
@@ -193,8 +192,8 @@ h2 {
   align-items: flex-end;
 }
 
-.buy_area p{
-font-weight: 800;
+.buy_area p {
+  font-weight: 800;
 }
 
 .buy {
@@ -233,13 +232,12 @@ font-weight: 800;
   top: 0px;
 }
 
-
-h4{
+h4 {
   line-height: 1.1em;
   padding-bottom: 5px;
 }
 
-.basket_inner{
+.basket_inner {
   max-height: 300px;
   overflow-y: auto;
   margin: 0px 0 20px 0;
@@ -264,16 +262,18 @@ h4{
 #menu,
 #pizza_menu {
   padding: 0 10%;
-    max-width: 1440px;
+  max-width: 1440px;
 }
 
-.total{
+.total {
   margin: 10px 0 0 0;
   border-top: 3px solid #fff;
 }
 
-#total_number, #subtotal_number, .orange{
-  color:#E76C1F;
+#total_number,
+#subtotal_number,
+.orange {
+  color: #e76c1f;
 }
 
 #buy_items {
@@ -288,12 +288,12 @@ h4{
 }
 
 #buy_items:hover {
-  background-color: #fff;
-  color: #e76c1f;
-  cursor: pointer;
+  background-color: #c85d1b;
 }
 
-
+#buy_items:active, .buy:active {
+  background-color: #7e3a0f;
+}
 
 .item {
   background-color: #fdeadc;
@@ -301,7 +301,6 @@ h4{
   border-radius: 10px;
   margin: 10px;
   padding: 10px;
-
 }
 .delete {
   width: 15px;
@@ -329,9 +328,8 @@ h4{
 .delete:hover {
   filter: brightness(0) saturate(100%) invert(52%) sepia(29%) saturate(7287%)
     hue-rotate(354deg) brightness(97%) contrast(85%);
-    cursor: pointer;
+  cursor: pointer;
 }
-
 
 .truck {
   width: 50px;
@@ -345,8 +343,6 @@ h4{
   border-radius: 30px;
   border: none;
 }
-
-
 
 #my_modal::backdrop {
   background-color: rgba(69, 68, 68, 0.4);
@@ -392,7 +388,7 @@ footer {
     bottom: -80px;
   }
 
-  .mobile_basket_wrapper{
+  .mobile_basket_wrapper {
     position: relative;
   }
 
@@ -412,19 +408,18 @@ footer {
     gap: 10px;
   }
 
-
-  #item_counter_mobile{
-    color: #E76C1F;
-    background-color: #FDEADC;
-    position:absolute;
+  #item_counter_mobile {
+    color: #e76c1f;
+    background-color: #fdeadc;
+    position: absolute;
     padding: 0px 6px 2px 6px;
     right: -6px;
-        top: -5px;
+    top: -5px;
     border-radius: 100%;
-    text-align:center;
+    text-align: center;
   }
 
-  .buy_area p{
+  .buy_area p {
     font-weight: 800;
   }
 
@@ -462,9 +457,8 @@ footer {
     border-radius: 10px;
   }
 
-  .mobile_open_basket{
-    background-color: #E76C1F;
-
+  .mobile_open_basket {
+    background-color: #e76c1f;
   }
 
   #item_number {
@@ -477,7 +471,7 @@ footer {
     background-color: #fdeadc;
   }
 
-  .food_description{
+  .food_description {
     width: inherit;
   }
 
@@ -490,5 +484,7 @@ footer {
 }
 
 @media (min-width: 1200px) {
-
+  .content_wrapper {
+    padding-right: 10%;
+  }
 }
