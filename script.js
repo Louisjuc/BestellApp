@@ -1,5 +1,5 @@
 function render() {
-  foodRender();
+  burgerRender();
   pizzaRender();
   saladRender();
 }
@@ -9,28 +9,27 @@ let mobileCounter = document.getElementById('item_counter_mobile');
 let buyButton = document.getElementById('buy_items');
 buyButton.disabled = true;
 
-function foodRender() {
-  let contentRef = document.getElementById("menu");
+function renderCategory(Rendercategory, menuName) {
+  let contentRef = document.getElementById(menuName);
   contentRef.innerHTML = "";
-  for (let index = 0; index < 4; index++) {
-    contentRef.innerHTML += foodTemplate(index);
-  }
+
+  foods.forEach((food, Itemindex) => {
+    if (food.category === Rendercategory) {
+      contentRef.innerHTML += foodTemplate(Itemindex);
+    }
+  });
 }
 
 function pizzaRender() {
-  let contentRef = document.getElementById("pizza_menu");
-  contentRef.innerHTML = "";
-  for (let index = 4; index < 8; index++) {
-    contentRef.innerHTML += foodTemplate(index);
-  }
+  renderCategory("pizza", "pizza_menu");
 }
 
 function saladRender() {
-  let contentRef = document.getElementById("salad_menu");
-  contentRef.innerHTML = "";
-  for (let index = 8; index < 12; index++) {
-    contentRef.innerHTML += foodTemplate(index);
-  }
+  renderCategory("salad", "salad_menu");
+}
+
+function burgerRender() {
+  renderCategory("burger", "burger_menu");
 }
 
 function addtoBasket(index, button) {
@@ -121,7 +120,7 @@ function deleteItem(index, button) {
   button.closest(".item").remove();
   buttons[index].innerText = "Add to basket";
   buttons[index].disabled = false;
-  subCalculate()
+  subCalculate();
   totalCalculate();
 }
 
@@ -163,5 +162,4 @@ function totalCalculate() {
   document.querySelectorAll(".total_number").forEach((element) => {
   element.innerHTML =  total.toFixed(2) + "€";  
   }); 
-   
 }

@@ -39,20 +39,11 @@ p {
   line-height: 1.3em;
 }
 
-h2 {
-  font-size: 32px;
-}
+
 
 .header_intro {
   position: relative;
   margin: 0 auto;
-}
-
-.wrapper {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 5% 20px 5%;
-  position: relative;
 }
 
 .header-content {
@@ -131,16 +122,18 @@ h1 {
 .headline_section {
   background-color: #e76c1f;
   padding: 0 10%;
-  display: flex;
-  align-items: flex-end;
-
-  gap: 10px;
-  height: 60px;
   margin: 45px 0;
+}
+
+.headline_icon{
+  margin-top: -40px;
 }
 
 h2 {
   color: #fff;
+  display: flex;
+  gap: 20px;
+  font-size: 32px;
 }
 
 .title_section {
@@ -210,14 +203,13 @@ h2 {
 }
 
 .content_wrapper {
-  display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin: 0 auto;
 }
 
 .content {
-  flex: 1;
+  position: relative;
 }
 
 .basket_wrapper {
@@ -226,16 +218,26 @@ h2 {
   text-align: center;
   color: #fdeadc;
   width: clamp(100px, calc(41.463px + 18.293vw), 250px);
-  margin-top: 45px;
-  height: 100vh;
+  margin-top: -104px;
+  height: 500px;
+  border-radius: 20px 0 0 20px;
   position: sticky;
   top: 0px;
+  left: 0;
+  float: right;
+
 }
 
 h4 {
   line-height: 1.1em;
   padding-bottom: 5px;
 }
+
+.wrapper{
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
 
 .basket_inner {
   max-height: 300px;
@@ -255,11 +257,11 @@ h4 {
 
 .basket_inner::-webkit-scrollbar-thumb {
   background-color: #e76c1f;
-  border-radius: 10‚px;
+  border-radius: 10px;
 }
 
 #salad_menu,
-#menu,
+#burger_menu,
 #pizza_menu {
   padding: 0 10%;
   max-width: 1440px;
@@ -268,12 +270,6 @@ h4 {
 .total {
   margin: 10px 0 0 0;
   border-top: 3px solid #fff;
-}
-
-#total_number,
-#subtotal_number,
-.orange {
-  color: #e76c1f;
 }
 
 #buy_items {
@@ -375,6 +371,15 @@ footer {
     width: 100%;
   }
 
+  h2 {
+    color: #fff;
+    display: flex;
+    gap: 0px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
   .header {
     width: 90%;
     object-fit: cover;
@@ -445,6 +450,8 @@ footer {
     left: 0;
     bottom: 0px;
     transition: all 250ms ease-in-out;
+    float: inherit;
+    height:100vh;
   }
 
   .closed_basket {
@@ -481,10 +488,19 @@ footer {
     flex-direction: column;
     align-items: center;
   }
+
 }
 
-@media (min-width: 1200px) {
-  .content_wrapper {
-    padding-right: 10%;
-  }
+@media (min-width: 2000px) {
+  .basket_wrapper {
+    right: 33%;
+}
+
+.h2_wrapper{
+  max-width: 1440px;
+  margin: 0px auto;
+}
+
+
+  
 }

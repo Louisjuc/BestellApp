@@ -51,48 +51,55 @@
     
     </div>
 <div class="content_wrapper">
-
  <section class="content">
-
   <div class="headline_section">
-    <img src="./assets/icons/Chanese 1.svg" class="headline_icon" alt="Burger Icon"/>
-    <h2>Burger & Sandwiches</h2>
+    <div class="h2_wrapper">
+    
+    <h2><img src="./assets/icons/Chanese 1.svg" class="headline_icon" alt="Burger Icon"/> Burger</h2>
+  </div>
     </div>
-<section id="menu">
+    <section class="basket_wrapper closed_basket" id="basket_wrapper" class="">
+ 
+      <section id="basket" >
+        <h3>Your Basket</h3>
+        <section class="basket_inner">
+             <div id="item-basket"></div>
+            </section>
+            <h3>Subtotal: <span id="subtotal_number" class="orange"></span></h3>
+            <h3>Delivery Fee: <span class="orange">4,99€</span></h3>
+             <h3 class="total">Total: <span class="total_number orange"></span></h3> 
+             <button id="buy_items"  onclick="clearBasket()">Buy now <span class="total_number"></span></button>   
+      </section>
+      
+      <dialog id="my_modal">
+        <button class="close_dialog" onclick="closeDialog()">X</button>
+        <img src="./assets/icons/delivery.png" class="truck" alt="Besttellung aufgegeben icon">
+         <p><strong>Order confirmed!</strong><br>
+         Your food is on the way!</p>
+         </dialog>
+    </section><!-- Basket Ende-->
+<section id="burger_menu" class="wrapper">
       </section>
       <div class="headline_section">
-        <img src="./assets/icons/Pizza 1.svg" class="headline_icon" alt="Pizza Icon" />
-        <h2>Pizza</h2></div>
-        <section id="pizza_menu">
+        <div class="h2_wrapper">
+        
+        <h2><img src="./assets/icons/Pizza 1.svg" class="headline_icon" alt="Pizza Icon" />Pizza</h2></div>
+        </div>
+        
+        
+        <section id="pizza_menu" class="wrapper">
    
         </section>
       <div class="headline_section">
-        <img src="./assets/icons/Salad 1.svg" class="headline_icon" alt="Salat Icon"/>
-        <h2>Salad</h2></div>
-        <section id="salad_menu">
+        <div class="h2_wrapper">
+      
+        <h2><img src="./assets/icons/Salad 1.svg" class="headline_icon" alt="Salat Icon"/>Salad</h2>
+      </div>
+      </div>
+        <section id="salad_menu" class="wrapper">
    
     </section>
   </section> 
-<section class="basket_wrapper closed_basket" id="basket_wrapper" class="">
- 
-  <section id="basket" >
-    <h3>Your Basket</h3>
-    <section class="basket_inner">
-         <div id="item-basket"></div>
-        </section>
-        <h3>Subtotal: <span id="subtotal_number"></span></h3>
-        <h3>Delivery Fee: <span class="orange">4,99€</span></h3>
-         <h3 class="total">Total: <span class="total_number"></span></h3> 
-         <button id="buy_items"  onclick="clearBasket()">Buy now <span class="total_number"></span></button>   
-  </section>
-  
-  <dialog id="my_modal">
-    <button class="close_dialog" onclick="closeDialog()">X</button>
-    <img src="./assets/icons/delivery.png" class="truck" alt="Besttellung aufgegeben icon">
-     <p><strong>Order confirmed!</strong><br>
-     Your food is on the way!</p>
-     </dialog>
-</section>
 
 </div><!-- Content Wrapper-->
   <footer>
