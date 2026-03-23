@@ -6,8 +6,11 @@ function render() {
 
 let mobileCounter = document.getElementById('item_counter_mobile');
 
-let buyButton = document.getElementById('buy_items');
-buyButton.disabled = true;
+let itemRef = document.getElementById("item-basket");
+
+let basketRef = document.getElementById('basket_wrapper');
+let noBasket = document.getElementById('no_items_basket');
+let calcRef = document.getElementById('calculator');
 
 function renderCategory(Rendercategory, menuName) {
   let contentRef = document.getElementById(menuName);
@@ -32,16 +35,36 @@ function burgerRender() {
   renderCategory("burger", "burger_menu");
 }
 
-function addtoBasket(index, button) {
-  let itemRef = document.getElementById("item-basket");
+function addtoBasket(index) {
+  basketRef.style.display = "block";
+ 
   let existingItem = itemRef.querySelector(`.item[data-object-number="${index}"]`);
+
   if (existingItem) {
     addItem(index, existingItem);
   } else {
     itemRef.innerHTML += itemTemplate(index);
+    addCalculator();
   }
-  buyButton.disabled = false;
-  subCalculate()
+  checkEmptyBasket();
+}
+
+function addCalculator() {
+  if (calcRef.innerHTML === "") {
+    calcRef.innerHTML = calculatorTemplate();
+  }
+  subCalculate();
+}
+
+function checkEmptyBasket() {
+ 
+  let itemRef = document.getElementById("item-basket");
+
+  if (itemRef === "") {
+    itemRef.innerHTML = noBasket;
+  } else {
+    noBasket.innerHTML = "";
+  }
 }
 
 function addItem(index, element) {
@@ -52,7 +75,7 @@ function addItem(index, element) {
     item = element;
   }
 
-let counter = item.querySelector(".food_counter");
+  let counter = item.querySelector(".food_counter");
   let amount = parseInt(counter.innerText) + 1;
   counter.innerText = amount;
 
@@ -73,26 +96,28 @@ function renderBasket() {
 }
 
 function clearBasket() {
-  let buttons = document.querySelectorAll(".buy");
-  buttons.forEach((element) => {
-    element.innerHTML = "Add to basket";
-    element.disabled = false;
-  });
+  openDialog();
+
+  basketRef.style.display = "none";
+  mobileCounter.innerHTML = 0;
+  
+  renderBasket();
+  openBasket();
+  checkEmptyBasket()
+}
+
+function openDialog(){
   let modal = document.getElementById("my_modal");
   modal.showModal();
 
   setTimeout(() => {
     modal.close();
-  }, 3000);
-  
-  renderBasket();
-  subCalculate();
-  totalCalculate();
-  buyButton.disabled = true;
+     }, 3000);
 }
 
 function closeDialog() {
   document.getElementById("my_modal").close();
+  
 }
 
 function removeItem(index, button) {
@@ -142,7 +167,7 @@ function subCalculate() {
     totalItems += count; 
   });
   document.getElementById("subtotal_number").innerText = total.toFixed(2) + "€";
-  mobileCounter.textContent = totalItems;
+  mobileCounter.innerHTML = totalItems;
 
   totalCalculate();
 }
