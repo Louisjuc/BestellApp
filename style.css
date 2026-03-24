@@ -101,20 +101,20 @@ nav {
 
 .basket_wrapper {
   background-color: #363534;
-  padding: 3%;
+  padding: 40px;
   color: #fdeadc;
-  width: clamp(100px, calc(41.463px + 18.293vw), 250px);
-  margin-top: -104px;
+  width: 250px;
+  margin-top: 45px;
   border-radius: 25px 0 0 25px;
   position: sticky;
   top: 0px;
   left: 0;
-  float: right;
   min-height: 400px;
 }
 
 .basket_title {
   text-align: center;
+  font-size: 32px;
 }
 
 #basket {
@@ -191,11 +191,12 @@ h1 .orange {
 
 .headline_section {
   background-color: #e76c1f;
-  padding: 0 10%;
+  padding: 0px;
   margin: 45px 0;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
   box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
 .headline_icon {
@@ -207,6 +208,9 @@ h2 {
   display: flex;
   gap: 20px;
   font-size: 32px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 10%;
 }
 
 .title_section {
@@ -233,7 +237,7 @@ h2 {
   border-radius: 10px;
   width: 630px;
   justify-content: space-between;
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 
 .food_card img {
@@ -287,6 +291,7 @@ h2 {
 
 .content_wrapper {
   justify-content: space-between;
+  display: flex;
   align-items: flex-start;
   margin: 0 auto;
   max-width: 1440px;
@@ -305,7 +310,9 @@ h4 {
 #salad_menu,
 #burger_menu,
 #pizza_menu {
-  padding: 0 10%;
+  padding: 20% 10% 5% 10%;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .total {
@@ -327,6 +334,10 @@ h4 {
 
 .total_number {
   font-size: 18px;
+}
+
+.h2_wrapper {
+  padding: 0 10%;
 }
 
 #buy_items:hover {
@@ -356,7 +367,8 @@ h4 {
   right: 10px;
 }
 
-.food_card_icon, .food_card_icon_minus {
+.food_card_icon,
+.food_card_icon_minus {
   width: 10px;
   height: 20px;
 }
@@ -400,7 +412,7 @@ h4 {
 }
 
 .modal_headline {
- font-size: 22px;
+  font-size: 22px;
 }
 
 #my_modal::backdrop {
@@ -501,8 +513,14 @@ footer {
   }
 
   .headline_section {
+    margin-top: 20px;
     width: inherit;
+    position: inherit;
   }
+
+  #salad_menu, #burger_menu, #pizza_menu {
+    padding: 3% 10%;
+}
 
   .content_wrapper {
     display: inherit;
@@ -522,7 +540,6 @@ footer {
     left: 0;
     bottom: 0px;
     transition: all 250ms ease-in-out;
-    float: inherit;
     height: 100vh;
   }
 
@@ -539,6 +556,8 @@ footer {
   .mobile_open_basket {
     background-color: #e76c1f;
   }
+
+  
 
   #item_number {
     color: #e76c1f;
@@ -566,9 +585,6 @@ footer {
   .h2_wrapper {
     max-width: 1440px;
     margin: 0px auto;
-  }
-
-  h2 {
     padding: 0 10%;
   }
 }

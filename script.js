@@ -1,18 +1,14 @@
+let mobileCounter = document.getElementById("item_counter_mobile");
+let itemRef = document.getElementById("item-basket");
+let basketRef = document.getElementById("basket_wrapper");
+let noBasket = document.getElementById("no_items_basket");
+let calcRef = document.getElementById("calculator");
+
 function render() {
   burgerRender();
   pizzaRender();
   saladRender();
 }
-
-let mobileCounter = document.getElementById("item_counter_mobile");
-
-let itemRef = document.getElementById("item-basket");
-
-let basketRef = document.getElementById("basket_wrapper");
-
-let noBasket = document.getElementById("no_items_basket");
-
-let calcRef = document.getElementById("calculator");
 
 function renderCategory(Rendercategory, menuName) {
   let contentRef = document.getElementById(menuName);
@@ -38,17 +34,24 @@ function burgerRender() {
 }
 
 function addtoBasket(index, button) {
+  let numberTotal = button.querySelector(".number_added_items");
+  let existingItem = itemRef.querySelector( `.item[data-object-number="${index}"]` );
   basketRef.style.display = "block";
-  let existingItem = itemRef.querySelector(
-    `.item[data-object-number="${index}"]`
-  );
+
   if (existingItem) {
     addItem(index, existingItem);
   } else {
     itemRef.innerHTML += itemTemplate(index);
     addCalculator();
   }
-  button.innerHTML = "Added 1";
+
+  if (numberTotal === null) {
+    button.innerHTML = `Added <span class="number_added_items">1</span>`;
+  } else {
+    let actual = parseInt(numberTotal.innerText) || 0;
+    numberTotal.innerText = actual + 1;
+  }
+
   button.classList.add("orange");
 
   checkEmptyBasket();
@@ -80,11 +83,10 @@ function addItem(index, element) {
   let counter = item.querySelector(".food_counter");
   let amount = parseInt(counter.innerText) + 1;
   counter.innerText = amount;
-
-  moveButtons();
-
   let priceRef = item.querySelector(".item_price");
   let price = foods[index].price;
+  moveButtons();
+
   priceRef.innerText = (price * amount).toFixed(2) + "€";
 
   subCalculate();
@@ -201,11 +203,14 @@ function totalCalculate() {
 
   let subtotal = parseFloat(subtotalText);
   let deliveryCost = 4.99;
+  let buyButton = document.getElementById("buy_items");
 
   if (subtotal === 0) {
     deliveryCost = 0;
+    buyButton.disabled = true;
+  } else {
+    buyButton.disabled = false;
   }
-
   let total = subtotal + deliveryCost;
 
   document.querySelectorAll(".total_number").forEach((element) => {

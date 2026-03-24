@@ -34,8 +34,8 @@ function itemTemplate(index) {
 }
 
 function calculatorTemplate() {
-  return `<h3>Subtotal: <span id="subtotal_number" class="orange"></span></h3>
-  <h3>Delivery Fee: <span class="orange">4,99€</span></h3>
-   <h3 class="total">Total: <span class="total_number orange"></span></h3> 
-   <button id="buy_items"  onclick="clearBasket()">Buy now <span class="total_number"></span></button>  `;
+  return `<h3>Subtotal: <span id="subtotal_number"></span></h3>
+  <h3>Delivery Fee: 4,99€</h3>
+   <h3 class="total">Total: <span class="total_number"></span></h3> 
+   <button id="buy_items" onclick="clearBasket()">Buy now <span class="total_number"></span></button>  `;
 }
