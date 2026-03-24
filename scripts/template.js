@@ -24,7 +24,7 @@ function itemTemplate(index) {
     <h4>${foods[index].name}</h4>
     <section class="basket_numbers">
     <img src="./assets/icons/delete.svg" class="delete" onclick="deleteItem(${index}, this)">
-    <img src="./assets/icons/minus.svg" class="food_card_icon" onclick="removeItem(${index}, this)">
+    <img src="./assets/icons/minus.svg" class="food_card_icon_minus"  style="display:none" onclick="removeItem(${index}, this)">
     <p class="food_counter">1</p>
     <img src="./assets/icons/plus.svg" class="food_card_icon" onclick="addItem(${index}, this)">
     <p class="item_price" >${foods[index].price.toFixed(2) + "€"}</p>

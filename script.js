@@ -4,23 +4,25 @@ function render() {
   saladRender();
 }
 
-let mobileCounter = document.getElementById('item_counter_mobile');
+let mobileCounter = document.getElementById("item_counter_mobile");
 
 let itemRef = document.getElementById("item-basket");
 
-let basketRef = document.getElementById('basket_wrapper');
-let noBasket = document.getElementById('no_items_basket');
-let calcRef = document.getElementById('calculator');
+let basketRef = document.getElementById("basket_wrapper");
+
+let noBasket = document.getElementById("no_items_basket");
+
+let calcRef = document.getElementById("calculator");
 
 function renderCategory(Rendercategory, menuName) {
   let contentRef = document.getElementById(menuName);
   contentRef.innerHTML = "";
 
-  foods.forEach((food, Itemindex) => {
-    if (food.category === Rendercategory) {
-      contentRef.innerHTML += foodTemplate(Itemindex);
+  for (let index = 0; index < foods.length; index++) {
+    if (foods[index].category === Rendercategory) {
+      contentRef.innerHTML += foodTemplate(index);
     }
-  });
+  }
 }
 
 function pizzaRender() {
@@ -35,17 +37,20 @@ function burgerRender() {
   renderCategory("burger", "burger_menu");
 }
 
-function addtoBasket(index) {
+function addtoBasket(index, button) {
   basketRef.style.display = "block";
- 
-  let existingItem = itemRef.querySelector(`.item[data-object-number="${index}"]`);
-
+  let existingItem = itemRef.querySelector(
+    `.item[data-object-number="${index}"]`
+  );
   if (existingItem) {
     addItem(index, existingItem);
   } else {
     itemRef.innerHTML += itemTemplate(index);
     addCalculator();
   }
+  button.innerHTML = "Added 1";
+  button.classList.add("orange");
+
   checkEmptyBasket();
 }
 
@@ -57,7 +62,6 @@ function addCalculator() {
 }
 
 function checkEmptyBasket() {
- 
   let itemRef = document.getElementById("item-basket");
 
   if (itemRef === "") {
@@ -68,30 +72,41 @@ function checkEmptyBasket() {
 }
 
 function addItem(index, element) {
-
   if (element.closest) {
-    item = element.closest('.item');
+    item = element.closest(".item");
   } else {
     item = element;
   }
-
   let counter = item.querySelector(".food_counter");
   let amount = parseInt(counter.innerText) + 1;
   counter.innerText = amount;
+
+  moveButtons();
 
   let priceRef = item.querySelector(".item_price");
   let price = foods[index].price;
   priceRef.innerText = (price * amount).toFixed(2) + "€";
 
-  subCalculate()
+  subCalculate();
+}
+
+function moveButtons() {
+  let deleteButton = item.querySelector(".delete");
+  let counter = item.querySelector(".food_counter");
+  let minusButton = item.querySelector(".food_card_icon_minus");
+
+  if (counter.innerHTML > 1) {
+    minusButton.style.display = "block";
+    deleteButton.classList.add("delete_absolute");
+  }
 }
 
 function renderBasket() {
   let itemRef = document.getElementById("item-basket");
   itemRef.innerHTML = "";
 
-  for (let index = 0; index < basket.length; index++) {
-    itemRef.innerHTML += itemTemplate(basket[index]);
+  for (let index = 0; index < itemRef.length; index++) {
+    itemRef.innerHTML += itemTemplate(index);
   }
 }
 
@@ -100,24 +115,29 @@ function clearBasket() {
 
   basketRef.style.display = "none";
   mobileCounter.innerHTML = 0;
-  
   renderBasket();
   openBasket();
-  checkEmptyBasket()
+  checkEmptyBasket();
+
+  let buttons = document.querySelectorAll(".add");
+
+  for (let index = 0; index < buttons.length; index++) {
+    buttons[index].innerHTML = "Add to basket";
+    buttons[index].classList.remove("orange");
+  }
 }
 
-function openDialog(){
+function openDialog() {
   let modal = document.getElementById("my_modal");
   modal.showModal();
 
   setTimeout(() => {
     modal.close();
-     }, 3000);
+  }, 3000);
 }
 
 function closeDialog() {
   document.getElementById("my_modal").close();
-  
 }
 
 function removeItem(index, button) {
@@ -127,7 +147,7 @@ function removeItem(index, button) {
   counter.innerText = amount;
 
   if (counter.innerHTML < 1) {
-    deleteItem(index, button)
+    deleteItem(index, button);
   }
 
   let priceRef = parent.querySelector(".item_price");
@@ -135,23 +155,27 @@ function removeItem(index, button) {
   let newPrice = price * amount;
   priceRef.innerText = newPrice.toFixed(2) + "€";
 
-  subCalculate()
+  subCalculate();
   totalCalculate();
 }
 
 function deleteItem(index, button) {
-  let buttons = document.querySelectorAll(".buy");
+  let buttons = document.querySelectorAll(".add");
 
   button.closest(".item").remove();
+
+  buttons[index].classList.remove("orange");
   buttons[index].innerText = "Add to basket";
-  buttons[index].disabled = false;
+
   subCalculate();
   totalCalculate();
 }
 
 function openBasket() {
   document.getElementById("basket_wrapper").classList.toggle("closed_basket");
-  document.getElementById("mobile_basket").classList.toggle("mobile_open_basket");
+  document
+    .getElementById("mobile_basket")
+    .classList.toggle("mobile_open_basket");
 }
 
 function subCalculate() {
@@ -159,12 +183,12 @@ function subCalculate() {
   let totalItems = 0;
   let items = document.querySelectorAll(".item");
 
-  items.forEach(item => {
-    let index = parseInt(item.getAttribute("data-object-number")); 
+  items.forEach((item) => {
+    let index = parseInt(item.getAttribute("data-object-number"));
     let count = parseInt(item.querySelector(".food_counter").innerText);
-    let price = foods[index].price; 
+    let price = foods[index].price;
     total += price * count;
-    totalItems += count; 
+    totalItems += count;
   });
   document.getElementById("subtotal_number").innerText = total.toFixed(2) + "€";
   mobileCounter.innerHTML = totalItems;
@@ -174,7 +198,7 @@ function subCalculate() {
 
 function totalCalculate() {
   let subtotalText = document.getElementById("subtotal_number").innerText;
-  
+
   let subtotal = parseFloat(subtotalText);
   let deliveryCost = 4.99;
 
@@ -185,6 +209,6 @@ function totalCalculate() {
   let total = subtotal + deliveryCost;
 
   document.querySelectorAll(".total_number").forEach((element) => {
-  element.innerHTML =  total.toFixed(2) + "€";  
-  }); 
+    element.innerHTML = total.toFixed(2) + "€";
+  });
 }
